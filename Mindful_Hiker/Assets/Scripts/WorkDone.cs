@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,28 @@ using UnityEngine;
 public class WorkDone : MonoBehaviour
 {
 
-    public int AmountDone { get; private set; } = 0;
+    private Action<int> cbOnAmountDoneChanged;
+
+    private int amountDone;
+    public int AmountDone
+    {
+        get => amountDone;
+        private set
+        {
+            if (value >= 100)
+            {
+                value = 100;
+            }
+
+            amountDone = value;
+            cbOnAmountDoneChanged?.Invoke(amountDone);
+        }
+    }
+
+    private void Start()
+    {
+        AmountDone = 50;
+    }
 
     public void IncreaseWorkDone(int amount)
     {
@@ -17,5 +39,14 @@ public class WorkDone : MonoBehaviour
         AmountDone -= amount;
     }
 
+    public void RegisterOnAmountDoneChanged(Action<int> callbackfunc)
+    {
+        cbOnAmountDoneChanged += callbackfunc;
+    }
+
+    public void UnregisterOnAmountDoneChanged(Action<int> callbackfunc)
+    {
+        cbOnAmountDoneChanged -= callbackfunc;
+    }
 
 }
