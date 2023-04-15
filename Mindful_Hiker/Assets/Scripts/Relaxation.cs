@@ -25,7 +25,7 @@ public class Relaxation : MonoBehaviour
 
     private void Start()
     {
-        RelaxationAmount = 50;
+        RelaxationAmount = 75;
     }
 
     public void IncreaseRelaxation(int amount)

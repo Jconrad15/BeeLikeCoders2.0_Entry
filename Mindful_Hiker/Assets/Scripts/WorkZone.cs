@@ -40,10 +40,10 @@ public class WorkZone : MonoBehaviour
 
     private void Work()
     {
-        workDone.IncreaseWorkDone(5);
+        workDone.IncreaseWorkDone(20);
 
-        energy.DecreaseEnergy(5);
-        relaxation.DecreaseRelaxation(5);
+        energy.DecreaseEnergy(10);
+        relaxation.DecreaseRelaxation(10);
     }
 
     private void OnEnterWorkZone()

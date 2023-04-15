@@ -40,10 +40,10 @@ public class SleepZone : MonoBehaviour
 
     private void Sleep()
     {
-        energy.IncreaseEnergy(5);
+        energy.IncreaseEnergy(100);
 
-        workDone.DecreaseWorkDone(5);
-        relaxation.DecreaseRelaxation(5);
+        workDone.DecreaseWorkDone(40);
+        relaxation.DecreaseRelaxation(20);
     }
 
     private void OnEnterSleepZone()

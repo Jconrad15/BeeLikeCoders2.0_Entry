@@ -25,7 +25,7 @@ public class Energy : MonoBehaviour
 
     private void Start()
     {
-        EnergyAmount = 50;
+        EnergyAmount = 75;
     }
 
     public void IncreaseEnergy(int amount)
