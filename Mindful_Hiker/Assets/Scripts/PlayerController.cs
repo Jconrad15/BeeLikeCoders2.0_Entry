@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     private Action cbOnEnterSleepZone;
     private Action cbOnExitSleepZone;
 
+    private Action cbOnEnterRelaxZone;
+    private Action cbOnExitRelaxZone;
+
     private float speed = 5.0f;
 
     private void Update()
@@ -40,6 +43,11 @@ public class PlayerController : MonoBehaviour
             cbOnEnterSleepZone?.Invoke();
             Debug.Log("Enter sleep zone");
         }
+        else if(other.gameObject.layer == 8)
+        {
+            cbOnEnterRelaxZone?.Invoke();
+            Debug.Log("Enter relax zone");
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -53,6 +61,11 @@ public class PlayerController : MonoBehaviour
         {
             cbOnExitSleepZone?.Invoke();
             Debug.Log("Exit sleep zone");
+        }
+        else if (other.gameObject.layer == 8)
+        {
+            cbOnExitRelaxZone?.Invoke();
+            Debug.Log("Exit relax zone");
         }
     }
 
@@ -94,5 +107,25 @@ public class PlayerController : MonoBehaviour
     public void UnregisterOnExitSleepZone(Action callbackfunc)
     {
         cbOnExitSleepZone -= callbackfunc;
+    }
+
+    public void RegisterOnEnterRelaxZone(Action callbackfunc)
+    {
+        cbOnEnterRelaxZone += callbackfunc;
+    }
+
+    public void UnregisterOnEnterRelaxZone(Action callbackfunc)
+    {
+        cbOnEnterRelaxZone -= callbackfunc;
+    }
+
+    public void RegisterOnExitRelaxZone(Action callbackfunc)
+    {
+        cbOnExitRelaxZone += callbackfunc;
+    }
+
+    public void UnregisterOnExitRelaxZone(Action callbackfunc)
+    {
+        cbOnExitRelaxZone -= callbackfunc;
     }
 }

@@ -26,7 +26,7 @@ public class WorkDone : MonoBehaviour
 
     private void Start()
     {
-        AmountDone = 50;
+        AmountDone = 40;
     }
 
     public void IncreaseWorkDone(int amount)
