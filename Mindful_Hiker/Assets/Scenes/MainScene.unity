@@ -22937,8 +22937,8 @@ Transform:
   - {fileID: 1821119708}
   - {fileID: 2022755170}
   - {fileID: 321013969}
-  - {fileID: 1437575408}
   - {fileID: 1394183663}
+  - {fileID: 1437575408}
   - {fileID: 291373056}
   - {fileID: 2031249790}
   - {fileID: 46124497}
@@ -24581,6 +24581,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1259132558, guid: 2e9c82e5d63d3614e9b2f3f7928eefaa, type: 3}
+      propertyPath: bgMusic.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1259132558, guid: 2e9c82e5d63d3614e9b2f3f7928eefaa, type: 3}
+      propertyPath: bgMusic.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: a045d7387c6c7364ab9affe724386cac, type: 3}
+    - target: {fileID: 1259132558, guid: 2e9c82e5d63d3614e9b2f3f7928eefaa, type: 3}
+      propertyPath: bgMusic.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: ca23a9d40e582064e9381e67e9a1b9ed, type: 3}
+    - target: {fileID: 1259132558, guid: 2e9c82e5d63d3614e9b2f3f7928eefaa, type: 3}
+      propertyPath: bgMusic.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: bbe4257ef4e39f94bb3fccf0a96a3737, type: 3}
     - target: {fileID: 2638846833325407011, guid: 2e9c82e5d63d3614e9b2f3f7928eefaa, type: 3}
       propertyPath: m_Name
       value: Player
