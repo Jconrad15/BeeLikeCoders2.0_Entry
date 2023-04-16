@@ -9,6 +9,8 @@ public class MouseCameraController : MonoBehaviour
     private GameObject playerGO;
     private Vector2 mouseLook;
 
+    private bool lookingEnabled = true;
+
     private void Start()
     {
         playerGO = transform.parent.gameObject;
@@ -16,6 +18,8 @@ public class MouseCameraController : MonoBehaviour
 
     private void Update()
     {
+        if (lookingEnabled == false) { return; }
+
         Vector2 mouseDelta = new Vector2(
             Input.GetAxisRaw("Mouse X") * xSensitivity,
             Input.GetAxisRaw("Mouse Y") * ySensitivity);
@@ -32,5 +36,16 @@ public class MouseCameraController : MonoBehaviour
             -mouseLook.y, Vector3.right);
         playerGO.transform.localRotation = Quaternion.AngleAxis(
             mouseLook.x, playerGO.transform.up);
+    }
+
+
+    public void EnableLooking()
+    {
+        lookingEnabled = true;
+    }
+
+    public void DisableLooking()
+    {
+        lookingEnabled = false;
     }
 }

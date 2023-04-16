@@ -21,6 +21,7 @@ public class SleepZone : MonoBehaviour
     private GameObject sleepScreen;
 
     private PlayerController pc;
+    private MouseCameraController mcc;
 
     private void Start()
     {
@@ -29,6 +30,8 @@ public class SleepZone : MonoBehaviour
         pc = FindAnyObjectByType<PlayerController>();
         pc.RegisterOnEnterSleepZone(OnEnterSleepZone);
         pc.RegisterOnExitSleepZone(OnExitSleepZone);
+
+        mcc = FindAnyObjectByType<MouseCameraController>();
 
         audioSource = GetComponent<AudioSource>();
 
@@ -76,10 +79,12 @@ public class SleepZone : MonoBehaviour
     private IEnumerator ShowSleepScreen()
     {
         pc.DisableMovement();
+        mcc.DisableLooking();
         sleepScreen.SetActive(true);
         yield return new WaitForSeconds(3);
         sleepScreen.SetActive(false);
         pc.EnableMovement();
+        mcc.EnableLooking();
     }
 
     private void OnEnterSleepZone()
