@@ -13,11 +13,17 @@ public class SleepZone : MonoBehaviour
     private bool hasSleptBefore = false;
     private Action cbOnFirstTimeSleep;
 
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip sleepClip;
+
     private void Start()
     {
         PlayerController pc = FindAnyObjectByType<PlayerController>();
         pc.RegisterOnEnterSleepZone(OnEnterSleepZone);
         pc.RegisterOnExitSleepZone(OnExitSleepZone);
+
+        audioSource = GetComponent<AudioSource>();
 
         workDone = pc.GetComponent<WorkDone>();
         energy = pc.GetComponent<Energy>();
@@ -44,6 +50,8 @@ public class SleepZone : MonoBehaviour
 
     private void Sleep()
     {
+        audioSource.PlayOneShot(sleepClip);
+
         if (hasSleptBefore == false)
         {
             hasSleptBefore = true;

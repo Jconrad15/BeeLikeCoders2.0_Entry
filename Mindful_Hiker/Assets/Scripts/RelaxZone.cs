@@ -39,8 +39,8 @@ public class RelaxZone : MonoBehaviour
 
             relaxation.IncreaseRelaxation(4);
 
-            workDone.DecreaseWorkDone(1);
-            energy.DecreaseEnergy(1);
+            workDone.DecreaseWorkDone(2);
+            energy.DecreaseEnergy(2);
         }
     }
 

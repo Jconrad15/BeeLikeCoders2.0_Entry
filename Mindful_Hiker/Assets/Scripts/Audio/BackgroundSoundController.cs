@@ -13,8 +13,8 @@ public class BackgroundSoundController : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        index = 0;
-        Play();
+        index = -1;
+        audioSource.Stop();
     }
 
     private void Update()

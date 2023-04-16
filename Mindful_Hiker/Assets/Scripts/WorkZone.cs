@@ -10,15 +10,20 @@ public class WorkZone : MonoBehaviour
     private Energy energy;
     private Relaxation relaxation;
 
-    private bool hasWorkedThreeTimes = false;
     private int workedCount = 0;
     private Action cbOnThreeTimesWorked;
+
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip workClip;
 
     private void Start()
     {
         PlayerController pc = FindAnyObjectByType<PlayerController>();
         pc.RegisterOnEnterWorkZone(OnEnterWorkZone);
         pc.RegisterOnExitWorkZone(OnExitWorkZone);
+
+        audioSource = GetComponent<AudioSource>();
 
         workDone = pc.GetComponent<WorkDone>();
         energy = pc.GetComponent<Energy>();
@@ -45,6 +50,8 @@ public class WorkZone : MonoBehaviour
 
     private void Work()
     {
+        audioSource.PlayOneShot(workClip);
+
         if (workedCount <= 3)
         {
             workedCount++;
