@@ -7,14 +7,8 @@ public class AttributeBarUI : MonoBehaviour
     [SerializeField]
     private RectTransform barForeground;
 
-    private float maxWidth;
-    private float staticHeight;
-
-    private void Start()
-    {
-        maxWidth = barForeground.sizeDelta.x;
-        staticHeight = barForeground.sizeDelta.y;
-    }
+    private readonly float maxWidth = 150;
+    private readonly float staticHeight = 25;
 
     public void UpdateBarUI(float percentage)
     {

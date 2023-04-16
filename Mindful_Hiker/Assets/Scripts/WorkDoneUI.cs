@@ -9,8 +9,10 @@ public class WorkDoneUI : MonoBehaviour
 
     private void Start()
     {
-        FindAnyObjectByType<WorkDone>()
-            .RegisterOnAmountDoneChanged(OnWorkDoneChanged);
+        WorkDone wd = FindAnyObjectByType<WorkDone>();
+        wd.RegisterOnAmountDoneChanged(OnWorkDoneChanged);
+
+        OnWorkDoneChanged(wd.AmountDone);
     }
 
     private void OnWorkDoneChanged(int amount)

@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class RelaxZone : MonoBehaviour
@@ -10,6 +10,9 @@ public class RelaxZone : MonoBehaviour
     private Relaxation relaxation;
 
     private float relaxationTimeDelay = 6f;
+
+    private bool hasRelaxedBefore = false;
+    private Action cbOnFirstTimeRelax;
 
     private void Start()
     {
@@ -34,15 +37,21 @@ public class RelaxZone : MonoBehaviour
         {
             yield return new WaitForSeconds(relaxationTimeDelay);
 
-            relaxation.IncreaseRelaxation(6);
+            relaxation.IncreaseRelaxation(4);
 
-            workDone.DecreaseWorkDone(2);
-            energy.DecreaseEnergy(2);
+            workDone.DecreaseWorkDone(1);
+            energy.DecreaseEnergy(1);
         }
     }
 
     private void OnEnterRelaxZone()
     {
+        if (hasRelaxedBefore == false)
+        {
+            hasRelaxedBefore = true;
+            cbOnFirstTimeRelax?.Invoke();
+        }
+
         isInRelaxZone = true;
         StartCoroutine(Relax());
     }
@@ -53,4 +62,13 @@ public class RelaxZone : MonoBehaviour
         StopAllCoroutines();
     }
 
+    public void RegisterOnFirstTimeRelax(Action callbackfunc)
+    {
+        cbOnFirstTimeRelax += callbackfunc;
+    }
+
+    public void UnregisterOnFirstTimeRelax(Action callbackfunc)
+    {
+        cbOnFirstTimeRelax -= callbackfunc;
+    }
 }

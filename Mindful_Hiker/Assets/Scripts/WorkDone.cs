@@ -8,7 +8,7 @@ public class WorkDone : MonoBehaviour
 
     private Action<int> cbOnAmountDoneChanged;
 
-    private int amountDone;
+    private int amountDone = 40;
     public int AmountDone
     {
         get => amountDone;
@@ -22,11 +22,6 @@ public class WorkDone : MonoBehaviour
             amountDone = value;
             cbOnAmountDoneChanged?.Invoke(amountDone);
         }
-    }
-
-    private void Start()
-    {
-        AmountDone = 40;
     }
 
     public void IncreaseWorkDone(int amount)

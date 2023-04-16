@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,9 @@ public class SleepZone : MonoBehaviour
     private WorkDone workDone;
     private Energy energy;
     private Relaxation relaxation;
+
+    private bool hasSleptBefore = false;
+    private Action cbOnFirstTimeSleep;
 
     private void Start()
     {
@@ -40,6 +44,12 @@ public class SleepZone : MonoBehaviour
 
     private void Sleep()
     {
+        if (hasSleptBefore == false)
+        {
+            hasSleptBefore = true;
+            cbOnFirstTimeSleep?.Invoke();
+        }
+
         energy.IncreaseEnergy(100);
 
         workDone.DecreaseWorkDone(40);
@@ -54,5 +64,15 @@ public class SleepZone : MonoBehaviour
     private void OnExitSleepZone()
     {
         isInSleepZone = false;
+    }
+
+    public void RegisterOnFirstTimeSleep(Action callbackfunc)
+    {
+        cbOnFirstTimeSleep += callbackfunc;
+    }
+
+    public void UnregisterOnFirstTimeSleep(Action callbackfunc)
+    {
+        cbOnFirstTimeSleep -= callbackfunc;
     }
 }

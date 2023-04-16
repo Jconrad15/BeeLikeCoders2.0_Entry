@@ -7,7 +7,7 @@ public class Energy : MonoBehaviour
 {
     private Action<int> cbOnEnergyChanged;
 
-    private int energyAmount;
+    private int energyAmount = 50;
     public int EnergyAmount
     {
         get => energyAmount;
@@ -21,11 +21,6 @@ public class Energy : MonoBehaviour
             energyAmount = value;
             cbOnEnergyChanged?.Invoke(energyAmount);
         }
-    }
-
-    private void Start()
-    {
-        EnergyAmount = 75;
     }
 
     public void IncreaseEnergy(int amount)

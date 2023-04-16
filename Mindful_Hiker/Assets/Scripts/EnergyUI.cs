@@ -9,8 +9,10 @@ public class EnergyUI : MonoBehaviour
 
     private void Start()
     {
-        FindAnyObjectByType<Energy>()
-            .RegisterOnEnergyChanged(OnEnergyChanged);
+        Energy e = FindAnyObjectByType<Energy>();
+        e.RegisterOnEnergyChanged(OnEnergyChanged);
+
+        OnEnergyChanged(e.EnergyAmount);
     }
 
     private void OnEnergyChanged(int amount)

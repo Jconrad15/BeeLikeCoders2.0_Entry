@@ -7,7 +7,7 @@ public class Relaxation : MonoBehaviour
 {
     private Action<int> cbOnRelaxationChanged;
 
-    private int relaxationAmount;
+    private int relaxationAmount = 75;
     public int RelaxationAmount
     {
         get => relaxationAmount;
@@ -21,11 +21,6 @@ public class Relaxation : MonoBehaviour
             relaxationAmount = value;
             cbOnRelaxationChanged?.Invoke(relaxationAmount);
         }
-    }
-
-    private void Start()
-    {
-        RelaxationAmount = 75;
     }
 
     public void IncreaseRelaxation(int amount)

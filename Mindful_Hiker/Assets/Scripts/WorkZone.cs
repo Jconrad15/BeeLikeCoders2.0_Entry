@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,10 @@ public class WorkZone : MonoBehaviour
     private WorkDone workDone;
     private Energy energy;
     private Relaxation relaxation;
+
+    private bool hasWorkedThreeTimes = false;
+    private int workedCount = 0;
+    private Action cbOnThreeTimesWorked;
 
     private void Start()
     {
@@ -40,6 +45,15 @@ public class WorkZone : MonoBehaviour
 
     private void Work()
     {
+        if (workedCount <= 3)
+        {
+            workedCount++;
+            if (workedCount == 3)
+            {
+                cbOnThreeTimesWorked?.Invoke();
+            }
+        }
+
         workDone.IncreaseWorkDone(20);
 
         energy.DecreaseEnergy(10);
@@ -54,6 +68,16 @@ public class WorkZone : MonoBehaviour
     private void OnExitWorkZone()
     {
         isInWorkZone = false;
+    }
+
+    public void RegisterOnThreeTimesWorked(Action callbackfunc)
+    {
+        cbOnThreeTimesWorked += callbackfunc;
+    }
+
+    public void UnregisterOnThreeTimesWorked(Action callbackfunc)
+    {
+        cbOnThreeTimesWorked -= callbackfunc;
     }
 
 }

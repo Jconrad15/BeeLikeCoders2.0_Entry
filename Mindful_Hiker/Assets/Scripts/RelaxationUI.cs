@@ -9,8 +9,10 @@ public class RelaxationUI : MonoBehaviour
 
     private void Start()
     {
-        FindAnyObjectByType<Relaxation>()
-            .RegisterOnRelaxationChanged(OnRelaxationChanged);
+        Relaxation r = FindAnyObjectByType<Relaxation>();
+        r.RegisterOnRelaxationChanged(OnRelaxationChanged);
+
+        OnRelaxationChanged(r.RelaxationAmount);
     }
 
     private void OnRelaxationChanged(int amount)
