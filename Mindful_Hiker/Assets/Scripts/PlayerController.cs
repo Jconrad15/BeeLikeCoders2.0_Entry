@@ -17,6 +17,13 @@ public class PlayerController : MonoBehaviour
     private float speed = 5.0f;
     private bool movementEnabled = true;
 
+    private Vector3 startPos;
+
+    private void Start()
+    {
+        startPos = transform.position;
+    }
+
     private void Update()
     {
         if (movementEnabled == false) { return; }
@@ -26,6 +33,11 @@ public class PlayerController : MonoBehaviour
 
     private void CheckForInput()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            transform.position = startPos;
+        }
+
         float translation =
             Input.GetAxis("Vertical") * speed * Time.deltaTime;
         float straffe =
