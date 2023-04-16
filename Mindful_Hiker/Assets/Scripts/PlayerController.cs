@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -51,17 +49,14 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.layer == 6)
         {
             cbOnEnterWorkZone?.Invoke();
-            Debug.Log("Enter work zone");
         }
         else if (other.gameObject.layer == 7)
         {
             cbOnEnterSleepZone?.Invoke();
-            Debug.Log("Enter sleep zone");
         }
         else if(other.gameObject.layer == 8)
         {
             cbOnEnterRelaxZone?.Invoke();
-            Debug.Log("Enter relax zone");
         }
     }
 
@@ -70,17 +65,14 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.layer == 6)
         {
             cbOnExitWorkZone?.Invoke();
-            Debug.Log("Exit work zone");
         }
         else if (other.gameObject.layer == 7)
         {
             cbOnExitSleepZone?.Invoke();
-            Debug.Log("Exit sleep zone");
         }
         else if (other.gameObject.layer == 8)
         {
             cbOnExitRelaxZone?.Invoke();
-            Debug.Log("Exit relax zone");
         }
     }
 
