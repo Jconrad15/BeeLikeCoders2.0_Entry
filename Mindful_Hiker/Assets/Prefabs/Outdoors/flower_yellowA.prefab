@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4334133190200017092}
   - component: {fileID: 831535050864807777}
   - component: {fileID: 3201711824810916779}
-  - component: {fileID: 6118236722412860577}
   m_Layer: 0
   m_Name: flower_yellowA
   m_TagString: Untagged
@@ -85,17 +84,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6118236722412860577
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3994199741761723006}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1237372815667132225, guid: 0816ee3092e64d8439a6732affb6bde1, type: 3}

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6965901051170187670}
   - component: {fileID: 6270138282442221107}
   - component: {fileID: 8133772257087132409}
-  - component: {fileID: 8757804790859143595}
   m_Layer: 0
   m_Name: grass_leafs
   m_TagString: Untagged
@@ -84,17 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8757804790859143595
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7773224732655399724}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2791360427929362705, guid: 56118e445560b644b88e9a881d456b70, type: 3}

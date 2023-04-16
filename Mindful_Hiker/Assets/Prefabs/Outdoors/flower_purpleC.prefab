@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4597141995170298981}
   - component: {fileID: 604484954116125632}
   - component: {fileID: 3424838623390336778}
-  - component: {fileID: 6165328893609753101}
   m_Layer: 0
   m_Name: flower_purpleC
   m_TagString: Untagged
@@ -86,17 +85,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6165328893609753101
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3785140131692259039}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -8996590407231724058, guid: a4a8b53f2ae78c64984703163184a07d, type: 3}

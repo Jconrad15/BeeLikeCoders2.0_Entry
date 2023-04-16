@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3769479205773601895}
   - component: {fileID: 279287811831784386}
   - component: {fileID: 2595425239546763016}
-  - component: {fileID: -4111289994892716772}
   m_Layer: 0
   m_Name: plant_bushSmall
   m_TagString: Untagged
@@ -84,17 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &-4111289994892716772
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4540809236039022301}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6734223554270459613, guid: 76ec75ba6b544de4a8b2d3d764f2d27e, type: 3}
