@@ -15,9 +15,12 @@ public class PlayerController : MonoBehaviour
     private Action cbOnExitRelaxZone;
 
     private float speed = 5.0f;
+    private bool movementEnabled = true;
 
     private void Update()
     {
+        if (movementEnabled == false) { return; }
+
         CheckForInput();
     }
 
@@ -67,6 +70,16 @@ public class PlayerController : MonoBehaviour
             cbOnExitRelaxZone?.Invoke();
             Debug.Log("Exit relax zone");
         }
+    }
+
+    public void EnableMovement()
+    {
+        movementEnabled = true;
+    }
+
+    public void DisableMovement()
+    {
+        movementEnabled = false;
     }
 
     public void RegisterOnEnterWorkZone(Action callbackfunc)

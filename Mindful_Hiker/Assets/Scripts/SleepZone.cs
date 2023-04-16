@@ -17,9 +17,16 @@ public class SleepZone : MonoBehaviour
     [SerializeField]
     private AudioClip sleepClip;
 
+    [SerializeField]
+    private GameObject sleepScreen;
+
+    private PlayerController pc;
+
     private void Start()
     {
-        PlayerController pc = FindAnyObjectByType<PlayerController>();
+        sleepScreen.SetActive(false);
+
+        pc = FindAnyObjectByType<PlayerController>();
         pc.RegisterOnEnterSleepZone(OnEnterSleepZone);
         pc.RegisterOnExitSleepZone(OnExitSleepZone);
 
@@ -58,10 +65,21 @@ public class SleepZone : MonoBehaviour
             cbOnFirstTimeSleep?.Invoke();
         }
 
+        StartCoroutine(ShowSleepScreen());
+
         energy.IncreaseEnergy(100);
 
         workDone.DecreaseWorkDone(40);
         relaxation.DecreaseRelaxation(20);
+    }
+
+    private IEnumerator ShowSleepScreen()
+    {
+        pc.DisableMovement();
+        sleepScreen.SetActive(true);
+        yield return new WaitForSeconds(3);
+        sleepScreen.SetActive(false);
+        pc.EnableMovement();
     }
 
     private void OnEnterSleepZone()
